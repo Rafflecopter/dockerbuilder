@@ -106,7 +106,8 @@ with open("/app/Dockerfile", "a") as dockerfile:
         dockerfile.write("ARG {}\n".format(envvar))
 client = docker.Client(version='auto')
 if registryLocation != "on-cluster":
-    registry = os.getenv('DEIS_REGISTRY_HOSTNAME', 'https://index.docker.io/v1/')
+    #registry = os.getenv('DEIS_REGISTRY_HOSTNAME', 'https://index.docker.io/v1/')
+    registry = 'https://index.docker.io/v1/'
     username = os.getenv('DEIS_REGISTRY_USERNAME')
     password = os.getenv('DEIS_REGISTRY_PASSWORD')
     client.login(username=username, password=password, registry=registry)
